@@ -1,0 +1,7 @@
+/*-- bs引入檔 --*/
+@import 'helpers/bootstrap.scss';
+/*-- config --*/
+@import './config/reset';
+@import './config/base';
+/*-- pages --*/
+@import './pages/index';

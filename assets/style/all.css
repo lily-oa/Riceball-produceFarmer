@@ -12297,5 +12297,17 @@ body {
 }
 
 /*-- pages --*/
+.bg {
+  background-image: url("../../assets/images/bg.jpg");
+  background-position: center;
+  background-repeat: repeat;
+  background-size: cover;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 24px 12px;
+}
 
 /*# sourceMappingURL=all.css.map */

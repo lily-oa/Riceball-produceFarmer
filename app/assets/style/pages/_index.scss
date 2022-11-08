@@ -11,3 +11,21 @@
   margin: 0 auto;
   padding: 24px 12px;
 }
+
+.logo{
+  margin-bottom: 24px;
+  a{
+    display: block;
+    background-image: url('../../assets/images/logoSmall.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 178px;
+    height: 34px;
+    margin: 0 auto;
+    @include media-breakpoint-up(md) {
+      background-image: url(../../assets/images/logoBig.png);
+      width: 439px;
+      height: 105px;
+    }
+  }
+}

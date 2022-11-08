@@ -12310,4 +12310,26 @@ body {
   padding: 24px 12px;
 }
 
+.logo {
+  margin-bottom: 24px;
+}
+
+.logo a {
+  display: block;
+  background-image: url("../../assets/images/logoSmall.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 178px;
+  height: 34px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .logo a {
+    background-image: url(../../assets/images/logoBig.png);
+    width: 439px;
+    height: 105px;
+  }
+}
+
 /*# sourceMappingURL=all.css.map */

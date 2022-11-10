@@ -5176,17 +5176,17 @@ textarea.form-control-lg {
 .opacity-100 {
   opacity: 1 !important; }
 
-.overflow-auto {
-  overflow: auto !important; }
+.overflow-visible {
+  overflow: visible !important; }
 
 .overflow-hidden {
   overflow: hidden !important; }
 
-.overflow-visible {
-  overflow: visible !important; }
-
 .overflow-scroll {
   overflow: scroll !important; }
+
+.overflow-auto {
+  overflow: auto !important; }
 
 .d-inline {
   display: inline !important; }
@@ -6155,6 +6155,14 @@ textarea.form-control-lg {
     float: right !important; }
   .float-sm-none {
     float: none !important; }
+  .overflow-sm-visible {
+    overflow: visible !important; }
+  .overflow-sm-hidden {
+    overflow: hidden !important; }
+  .overflow-sm-scroll {
+    overflow: scroll !important; }
+  .overflow-sm-auto {
+    overflow: auto !important; }
   .d-sm-inline {
     display: inline !important; }
   .d-sm-inline-block {
@@ -6507,6 +6515,14 @@ textarea.form-control-lg {
     float: right !important; }
   .float-md-none {
     float: none !important; }
+  .overflow-md-visible {
+    overflow: visible !important; }
+  .overflow-md-hidden {
+    overflow: hidden !important; }
+  .overflow-md-scroll {
+    overflow: scroll !important; }
+  .overflow-md-auto {
+    overflow: auto !important; }
   .d-md-inline {
     display: inline !important; }
   .d-md-inline-block {
@@ -6859,6 +6875,14 @@ textarea.form-control-lg {
     float: right !important; }
   .float-lg-none {
     float: none !important; }
+  .overflow-lg-visible {
+    overflow: visible !important; }
+  .overflow-lg-hidden {
+    overflow: hidden !important; }
+  .overflow-lg-scroll {
+    overflow: scroll !important; }
+  .overflow-lg-auto {
+    overflow: auto !important; }
   .d-lg-inline {
     display: inline !important; }
   .d-lg-inline-block {
@@ -7211,6 +7235,14 @@ textarea.form-control-lg {
     float: right !important; }
   .float-xl-none {
     float: none !important; }
+  .overflow-xl-visible {
+    overflow: visible !important; }
+  .overflow-xl-hidden {
+    overflow: hidden !important; }
+  .overflow-xl-scroll {
+    overflow: scroll !important; }
+  .overflow-xl-auto {
+    overflow: auto !important; }
   .d-xl-inline {
     display: inline !important; }
   .d-xl-inline-block {
@@ -7563,6 +7595,14 @@ textarea.form-control-lg {
     float: right !important; }
   .float-xxl-none {
     float: none !important; }
+  .overflow-xxl-visible {
+    overflow: visible !important; }
+  .overflow-xxl-hidden {
+    overflow: hidden !important; }
+  .overflow-xxl-scroll {
+    overflow: scroll !important; }
+  .overflow-xxl-auto {
+    overflow: auto !important; }
   .d-xxl-inline {
     display: inline !important; }
   .d-xxl-inline-block {

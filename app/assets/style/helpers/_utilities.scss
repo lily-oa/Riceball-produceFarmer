@@ -13,6 +13,11 @@ $utilities: map-merge(
       class: fs,
       values: $font-sizes
     ),
+    "overflow": (
+    responsive: true,
+    property: overflow,
+    values: visible hidden scroll auto,
+    ),
   ),
   $utilities
 );

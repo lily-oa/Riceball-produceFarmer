@@ -24,21 +24,22 @@
     <div class="bg-white bg-opacity-75 p-4 rounded-2 overflow-auto">
     <!--Search group-->
     <div>
-      <form data-piceNet-form class="flex flex-column flex-md-column-reverse">
-        <div class="flex d-grid gap-2 flex-md-column mb-2">
-          <label class="d-block flex flex-nowrap align-items-center rounded-2 border-primary text-white bg-primary">
-            <span class="mx-4 my-2 overflow-hidden d-inline-flex">
+      <form data-piceNet-form class="d-flex flex-column flex-md-column-reverse">
+        <div class="d-flex d-grid gap-2 mb-2 flex-nowrap flex-md-row flex-column">
+          <label class="flex-grow-1 flex-nowrap align-items-center rounded-2 border-primary text-white bg-primary w-25">
+            <span class="mx-4 my-2 d-inline-block">
               查詢作物名稱
             </span>
             <input data-priceNet-input 
-                  class="p-2 width-100 text-black rounded-2 rou" 
+                  class="p-2 w-100 text-black rounded-2" 
                   type="text" 
                   placeholder="請輸入作物名稱" 
                   name="crop"
             >
           </label>
-          <div class="">
-
+          <div class="d-none d-md-block d-flex gap-2">
+            <input data-priceNet-submit class="flex-grow-1" type="text" >
+            <input type="text">
           </div>
         </div>
       </form>

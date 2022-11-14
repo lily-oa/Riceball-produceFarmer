@@ -39,7 +39,8 @@ current: index
                         rounded-2
                         border-none
                         text-white 
-                        bg-primary 
+                        bg-primary
+                        
                       "
           >
             <span class="mx-4 my-2 d-none d-inline d-md-block">
@@ -48,10 +49,11 @@ current: index
             <input data-priceNet-input 
                   class="
                         p-2
-                        w-full
-                        text-black 
+                        w-full 
                         rounded-l-none
-                        border-1-primary
+                        border border-primary
+                        rounded-2
+                        text-primary
                         " 
                   type="text" 
                   placeholder="請輸入作物名稱" 
@@ -68,7 +70,7 @@ current: index
                           px-4 py-2 
                           text-white 
                           bg-primary
-                          round-2
+                          rounded-2
                           cursor-pointer
                           border-0
                           " 
@@ -83,7 +85,7 @@ current: index
                           bg-warning
                           px-4 py-2
                           text-white
-                          round-2
+                          rounded-2
                           cursor-pointer
                           border-0
                           "       
@@ -93,14 +95,52 @@ current: index
           </div>
         </div>
         <div class="d-flex mb-2 gap-2">
-          <select data-priceNet-order class="flex-1">
-            
+          <select data-priceNet-order 
+                  class="
+                        flex-1 p-2 
+                        rounded-2 
+                        border border-primary 
+                        text-primary
+                        "
+            >
+            <option value="無排序">無排序</option>
+            <option value="上價">上價排序</option>
+            <option value="中價">中價排序</option>
+            <option value="下價">下價排序</option>
+            <option value="平均價">平均價排序</option>
+            <option value="交易量">依交易量排序</option>
           </select>
-          <select name="" id="">
-
+          <select data-priceNet-type
+                  class="
+                        flex-1 p-2 
+                        border rounded-2 
+                        border-primary 
+                        text-primary
+                        "
+          >
+            <option value="none">不分類</option>
+            <option value="N04">蔬果</option>
+            <option value="N05">水果</option>
+            <option value="N06">花卉</option>
           </select>
         </div>
       </form>
+
+      <p data-priceNet-searchInfo
+          class="
+                text-xl
+                mb-4
+                border-primary
+                border-2
+                bg-opacity-90
+                text-center 
+                text-white
+                p-4
+                rounded-2
+          " 
+      >
+        資料加載中...........
+      </p>
     </div>
     </div>
   </div>

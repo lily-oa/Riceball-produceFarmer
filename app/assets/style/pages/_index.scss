@@ -61,3 +61,11 @@
 .border-1-primary{
   border: 1px solid primary;
 }
+.text-xl{
+  font-size: 1.25rem;  //20px
+  line-height: 1.75rem;  //28px
+}
+.bg-opacity-90{
+  background: $primary;
+  opacity: .9;
+}

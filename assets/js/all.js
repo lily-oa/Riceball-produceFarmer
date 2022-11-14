@@ -43,15 +43,20 @@ function correctTest(name) {
     console.log('目前正在批改中...');
     setTimeout(function () {
       var score = Math.round(Math.random() * 100);
-      resolve({
-        name: name,
-        score: score
-      });
+
+      if (score >= 60) {
+        resolve({
+          name: name,
+          score: score
+        });
+      } else {
+        reject('你已達退學門檻');
+      }
     }, 2000);
   });
 }
 
 correctTest("小明").then(function (data) {
   return console.log(data);
-}); //.catch(error => console.log(error));
+}); // .catch(error => console.log(error));
 //# sourceMappingURL=all.js.map

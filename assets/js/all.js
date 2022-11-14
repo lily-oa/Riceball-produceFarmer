@@ -36,23 +36,22 @@ function getData() {
 
 getData(); // ---------------------學習 Promise Async Await----------
 // promise
-//檢查成績分數
-//第一個 promise
+//批改作業
 
-var checkScore = function checkScore(score) {
-  return new Promise(function (resolved, reject) {
-    console.log('正在觀察是否及格');
+function correctTest(name) {
+  return new Promise(function (resolve, reject) {
+    console.log('目前正在批改中...');
     setTimeout(function () {
-      if (score >= 60) {
-        resolved(score);
-      } else {
-        console.log('不及格');
-      }
-    }, 3000);
+      var score = Math.round(Math.random() * 100);
+      resolve({
+        name: name,
+        score: score
+      });
+    }, 2000);
   });
-};
+}
 
-checkScore(60).then(function (data) {
+correctTest("小明").then(function (data) {
   return console.log(data);
-}); // .catch(error => console.log(error));
+});
 //# sourceMappingURL=all.js.map

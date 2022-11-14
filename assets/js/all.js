@@ -35,12 +35,24 @@ function getData() {
 }
 
 getData(); // ---------------------學習 Promise Async Await----------
-// const timeout = setTimeout(callback function, 2000);
-// const timeout = setTimeout(註冊函式, 2000);
+// promise
+//檢查成績分數
+//第一個 promise
 
-var timeout = setTimeout(callFun, 2000);
+var checkScore = function checkScore(score) {
+  return new Promise(function (resolved, reject) {
+    console.log('正在觀察是否及格');
+    setTimeout(function () {
+      if (score >= 60) {
+        resolved(score);
+      } else {
+        console.log('不及格');
+      }
+    }, 3000);
+  });
+};
 
-function callFun() {
-  console.log('觸發');
-}
+checkScore(50).then(function (data) {
+  return console.log(data);
+}); // .catch(error => console.log(error));
 //# sourceMappingURL=all.js.map

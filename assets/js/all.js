@@ -53,5 +53,5 @@ function correctTest(name) {
 
 correctTest("小明").then(function (data) {
   return console.log(data);
-});
+}); //.catch(error => console.log(error));
 //# sourceMappingURL=all.js.map

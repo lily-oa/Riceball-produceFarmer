@@ -20,7 +20,11 @@ const table = document.querySelector('[data-priceNet-table]');
 const advanceSort = document.querySelector('[data-priceNet-advanceSort]'); 
 
 // State
-
+let currentType = undefined;
+let currentOrder = undefined;
+let currentSearched = '';
+let typeSearched = false;
+let isDescending = false;
 
 function getData(){
   axios.get(API)
@@ -30,3 +34,13 @@ function getData(){
 }
 
 getData();
+
+// ---------------------學習 Promise Async Await----------
+// const timeout = setTimeout(callback function, 2000);
+// const timeout = setTimeout(註冊函式, 2000);
+const timeout = setTimeout(callFun ,2000);
+
+
+  function callFun(){
+    console.log('觸發');
+  }

@@ -57,5 +57,6 @@ function correctTest(name){
 
 correctTest("小明")
   .then(data => console.log(data));
+  .catch(error => console.log(error));
 
 

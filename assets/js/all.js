@@ -20,6 +20,12 @@ var type = document.querySelector('[data-priceNet-type]');
 var table = document.querySelector('[data-priceNet-table]');
 var advanceSort = document.querySelector('[data-priceNet-advanceSort]'); // State
 
+var currentType = undefined;
+var currentOrder = undefined;
+var currentSearched = '';
+var typeSearched = false;
+var isDescending = false;
+
 function getData() {
   axios.get(API).then(function (response) {
     data = response.data.filter(function (item) {
@@ -28,5 +34,13 @@ function getData() {
   });
 }
 
-getData();
+getData(); // ---------------------學習 Promise Async Await----------
+// const timeout = setTimeout(callback function, 2000);
+// const timeout = setTimeout(註冊函式, 2000);
+
+var timeout = setTimeout(callFun, 2000);
+
+function callFun() {
+  console.log('觸發');
+}
 //# sourceMappingURL=all.js.map

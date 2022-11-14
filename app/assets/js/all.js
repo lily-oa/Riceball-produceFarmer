@@ -70,7 +70,9 @@ function checkReward(data){
 }
 
 correctTest("小明")
-  .then(data => checkReward(data))
+  .then(data => {
+    return checkReward(data);
+  })
   .then(name => console.log(`名字是${name}`))
   .catch(error => console.log(error));
 

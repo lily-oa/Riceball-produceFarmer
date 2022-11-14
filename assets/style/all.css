@@ -12829,4 +12829,35 @@ body {
   letter-spacing: 0.05rem;
 }
 
+.fa-solid, .fas {
+  font-family: Font Awesome 6 Free;
+  font-weight: 900;
+}
+
+.fa-sm {
+  font-size: .875rem;
+  line-height: .7143rem;
+  vertical-align: .05357rem;
+}
+
+.sort--active {
+  opacity: 1;
+}
+
+.transition-opacity {
+  -webkit-transition-property: opacity;
+  -o-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+       -o-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition-duration: 150ms;
+       -o-transition-duration: 150ms;
+          transition-duration: 150ms;
+}
+
+.opacity-40 {
+  opacity: .4;
+}
+
 /*# sourceMappingURL=all.css.map */

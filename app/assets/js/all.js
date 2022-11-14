@@ -38,8 +38,6 @@ getData();
 // ---------------------學習 Promise Async Await----------
 // const timeout = setTimeout(callback function, 2000);
 // const timeout = setTimeout(註冊函式, 2000);
-const timeout = setTimeout(callFun ,3000);
 
-  function callFun(){
-    console.log('觸發');
-  }
+const timeout = setTimeout(() => console.log('88888888888') ,3000);
+

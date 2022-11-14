@@ -29,3 +29,35 @@
     }
   }
 }
+
+.overflow-y-auto{
+  overflow-y: auto;
+}
+.flex-1{
+  flex: 1 1 0%;
+}
+.h-full{
+  height: 100%;
+}
+.w-full{
+  width: 100%;
+}
+.whitespace-nowrap{
+  white-space: nowrap;
+}
+.hidden{
+    display: none;
+  @include media-breakpoint-up(md) {
+    display: block;
+  }
+}
+.rounded-l-none{
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+.cursor-pointer{
+  cursor: pointer;
+}
+.border-1-primary{
+  border: 1px solid primary;
+}

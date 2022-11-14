@@ -570,6 +570,12 @@ progress {
   }
 }
 
+.display-7 {
+  font-size: 1.25rem;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
 .list-unstyled {
   padding-left: 0;
   list-style: none;
@@ -12794,6 +12800,16 @@ body {
 
 .border-1-primary {
   border: 1px solid primary;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.bg-opacity-90 {
+  background: #899e39;
+  opacity: .9;
 }
 
 /*# sourceMappingURL=all.css.map */

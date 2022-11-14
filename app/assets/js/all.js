@@ -36,8 +36,25 @@ function getData(){
 getData();
 
 // ---------------------學習 Promise Async Await----------
-// const timeout = setTimeout(callback function, 2000);
-// const timeout = setTimeout(註冊函式, 2000);
+// promise
 
-const timeout = setTimeout(() => console.log('88888888888') ,3000);
+//檢查成績分數
+//第一個 promise
+
+const checkScore = (score) => {
+  return new Promise((resolved, reject) => {
+    console.log('正在觀察是否及格');
+    setTimeout(() => {
+      if(score >= 60){
+        resolved(score);
+      }else{
+        console.log('不及格');
+      }
+    }, 3000);
+    
+  });  
+}
+checkScore(50)
+  .then(data => console.log(data));
+  // .catch(error => console.log(error));
 

@@ -56,12 +56,22 @@ function correctTest(name){
         reject('你已達退學門檻');
       }
       
-    },2000);
+    },1000);
   });
+}
+// 第二個 promise (檢查獎勵)
+function checkReward(data){
+  return new Promise((resolve, reject)=>{
+    console.log('檢查獎品中');
+    setTimeout(()=>{
+      resolve(data.name);
+    }, 1000)
+  })
 }
 
 correctTest("小明")
-  .then(data => console.log(data));
-  // .catch(error => console.log(error));
+  .then(data => checkReward(data))
+  .then(name => console.log(`名字是${name}`))
+  .catch(error => console.log(error));
 
 

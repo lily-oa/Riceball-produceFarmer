@@ -38,23 +38,24 @@ getData();
 // ---------------------學習 Promise Async Await----------
 // promise
 
-//檢查成績分數
-//第一個 promise
+//批改作業
 
-const checkScore = (score) => {
-  return new Promise((resolved, reject) => {
-    console.log('正在觀察是否及格');
+function correctTest(name){
+  return new Promise((resolve, reject) => {
+    console.log('目前正在批改中...');
     setTimeout(() => {
-      if(score >= 60){
-        resolved(score);
-      }else{
-        console.log('不及格');
-      }
-    }, 3000);
-    
-  });  
+      const score = Math.round(Math.random()*100);
+      resolve(
+        {
+          name,
+          score
+        }
+      )
+    },2000);
+  });
 }
-checkScore(60)
+
+correctTest("小明")
   .then(data => console.log(data));
-  // .catch(error => console.log(error));
+
 

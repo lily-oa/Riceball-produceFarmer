@@ -12761,6 +12761,10 @@ body {
   overflow-y: auto;
 }
 
+.overflow-x-auto {
+  overflow-x: auto;
+}
+
 .flex-1 {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 0%;
@@ -12810,6 +12814,19 @@ body {
 .bg-opacity-90 {
   background: #899e39;
   opacity: .9;
+}
+
+.table-auto {
+  table-layout: auto;
+}
+
+.bg-cream {
+  background: #f4f1ea;
+  opacity: 1;
+}
+
+.tracking-wider {
+  letter-spacing: 0.05rem;
 }
 
 /*# sourceMappingURL=all.css.map */

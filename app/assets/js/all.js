@@ -45,18 +45,23 @@ function correctTest(name){
     console.log('目前正在批改中...');
     setTimeout(() => {
       const score = Math.round(Math.random()*100);
-      resolve(
-        {
-          name,
-          score
-        }
-      )
+      if(score>=60){
+        resolve(
+          {
+            name,
+            score
+          }  
+        )
+      }else{
+        reject('你已達退學門檻');
+      }
+      
     },2000);
   });
 }
 
 correctTest("小明")
   .then(data => console.log(data));
-//.catch(error => console.log(error));
+  // .catch(error => console.log(error));
 
 

@@ -33,6 +33,9 @@
 .overflow-y-auto{
   overflow-y: auto;
 }
+.overflow-x-auto{
+  overflow-x: auto;
+}
 .flex-1{
   flex: 1 1 0%;
 }
@@ -68,4 +71,16 @@
 .bg-opacity-90{
   background: $primary;
   opacity: .9;
+}
+
+// Table
+.table-auto{
+  table-layout: auto;
+}
+.bg-cream{
+  background: rgb(244, 241, 234);
+  opacity: 1;
+}
+.tracking-wider{
+  letter-spacing: 0.05rem;  // 0.8px
 }

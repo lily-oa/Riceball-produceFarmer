@@ -84,3 +84,25 @@
 .tracking-wider{
   letter-spacing: 0.05rem;  // 0.8px
 }
+
+.fa-solid, .fas{
+  font-family: Font Awesome 6 Free;
+  font-weight: 900;
+}
+.fa-sm{
+  font-size: .875rem; //14px
+  line-height: .7143rem; //11.4288px
+  vertical-align: .05357rem; //0.85712px
+}
+.sort--active{
+  opacity: 1;
+}
+// css 動畫設定部份
+.transition-opacity{
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.opacity-40{
+  opacity: .4;
+}

@@ -54,7 +54,7 @@ const checkScore = (score) => {
     
   });  
 }
-checkScore(50)
+checkScore(60)
   .then(data => console.log(data));
   // .catch(error => console.log(error));
 

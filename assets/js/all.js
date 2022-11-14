@@ -52,11 +52,25 @@ function correctTest(name) {
       } else {
         reject('你已達退學門檻');
       }
-    }, 2000);
+    }, 1000);
+  });
+} // 第二個 promise (檢查獎勵)
+
+
+function checkReward(data) {
+  return new Promise(function (resolve, reject) {
+    console.log('檢查獎品中');
+    setTimeout(function () {
+      resolve(data.name);
+    }, 1000);
   });
 }
 
 correctTest("小明").then(function (data) {
-  return console.log(data);
-}); // .catch(error => console.log(error));
+  return checkReward(data);
+}).then(function (name) {
+  return console.log("\u540D\u5B57\u662F".concat(name));
+})["catch"](function (error) {
+  return console.log(error);
+});
 //# sourceMappingURL=all.js.map

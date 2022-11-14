@@ -52,7 +52,7 @@ var checkScore = function checkScore(score) {
   });
 };
 
-checkScore(50).then(function (data) {
+checkScore(60).then(function (data) {
   return console.log(data);
 }); // .catch(error => console.log(error));
 //# sourceMappingURL=all.js.map

@@ -37,7 +37,6 @@ getData();
 
 // ---------------------學習 Promise Async Await----------
 // promise
-
 //批改作業
 
 function correctTest(name){
@@ -45,7 +44,7 @@ function correctTest(name){
     console.log('目前正在批改中...');
     setTimeout(() => {
       const score = Math.round(Math.random()*100);
-      if(score>=60){
+      if(score>=20){
         resolve(
           {
             name,
@@ -68,6 +67,9 @@ function checkReward(data){
         resolve(`${data.name}獲得電影票`)
       }else if(data.score>=60 && data.score<90){
         resolve(`${data.name}獲得嘉獎`)
+      }else{
+        console.log(data.score);
+        reject(`你沒有獎品，打手心10下!!`)
       }
     }, 1000)
   })

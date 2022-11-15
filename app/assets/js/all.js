@@ -64,15 +64,17 @@ function checkReward(data){
   return new Promise((resolve, reject)=>{
     console.log('檢查獎品中');
     setTimeout(()=>{
-      resolve(data.name);
+      if(data.score>=90){
+        resolve(`${data.name}獲得電影票`)
+      }else if(data.score>=60 && data.score<90){
+        resolve(`${data.name}獲得嘉獎`)
+      }
     }, 1000)
   })
 }
 
 correctTest("小明")
-  .then(data => {
-    return checkReward(data);
-  })
+  .then(data => checkReward(data))
   .then(name => console.log(`名字是${name}`))
   .catch(error => console.log(error));
 

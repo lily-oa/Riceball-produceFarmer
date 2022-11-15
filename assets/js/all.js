@@ -61,7 +61,11 @@ function checkReward(data) {
   return new Promise(function (resolve, reject) {
     console.log('檢查獎品中');
     setTimeout(function () {
-      resolve(data.name);
+      if (data.score >= 90) {
+        resolve("".concat(data.name, "\u7372\u5F97\u96FB\u5F71\u7968"));
+      } else if (data.score >= 60 && data.score < 90) {
+        resolve("".concat(data.name, "\u7372\u5F97\u5609\u734E"));
+      }
     }, 1000);
   });
 }

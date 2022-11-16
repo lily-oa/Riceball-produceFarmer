@@ -38,43 +38,36 @@ getData(); // ---------------------學習 Promise Async Await----------
 // promise
 //批改作業
 
-function correctTest(name) {
-  return new Promise(function (resolve, reject) {
-    console.log('目前正在批改中...');
+function correctHomework(name) {
+  return new Promise(function (resolved, reject) {
+    console.log('目前正在批改作業中');
     setTimeout(function () {
       var score = Math.round(Math.random() * 100);
 
-      if (score >= 20) {
-        resolve({
+      if (score >= 60) {
+        resolved({
           name: name,
           score: score
         });
       } else {
-        reject('你已達退學門檻');
+        reject("準備退學吧!!");
       }
-    }, 1000);
+    }, 3000);
   });
-} // 第二個 promise (檢查獎勵)
+}
 
-
-function checkReward(data) {
+function checkAward(data) {
   return new Promise(function (resolve, reject) {
-    console.log('檢查獎品中');
+    console.log('正在檢查獎品中');
     setTimeout(function () {
-      if (data.score >= 90) {
-        resolve("".concat(data.name, "\u7372\u5F97\u96FB\u5F71\u7968"));
-      } else if (data.score >= 60 && data.score < 90) {
-        resolve("".concat(data.name, "\u7372\u5F97\u5609\u734E"));
-      } else {
-        console.log(data.score);
-        reject("\u4F60\u6C92\u6709\u734E\u54C1\uFF0C\u6253\u624B\u5FC310\u4E0B!!");
-      }
+      console.log(data.score);
+      resolve(data.name);
     }, 1000);
   });
 }
 
-correctTest("小明").then(function (data) {
-  return checkReward(data);
+correctHomework('小明').then(function (data) {
+  return checkAward(data);
 }).then(function (name) {
   return console.log("\u540D\u5B57\u662F".concat(name));
 })["catch"](function (error) {

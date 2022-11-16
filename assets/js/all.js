@@ -57,19 +57,22 @@ function correctHomework(name) {
 }
 
 function checkAward(data) {
-  return new Promise(function (resolve, reject) {
+  return new Promise(function (resolved, reject) {
     console.log('正在檢查獎品中');
     setTimeout(function () {
-      console.log(data.score);
-      resolve(data.name);
+      if (data.score >= 90) {
+        resolved("".concat(data.name, "\u7372\u5F97\u96FB\u5F71\u7968"));
+      } else if (data.score >= 60 && data.score < 90) {
+        resolved("".concat(data.name, "\u7372\u5F97\u5609\u734E"));
+      }
     }, 1000);
   });
 }
 
 correctHomework('小明').then(function (data) {
   return checkAward(data);
-}).then(function (name) {
-  return console.log("\u540D\u5B57\u662F".concat(name));
+}).then(function (reword) {
+  return console.log(reword);
 })["catch"](function (error) {
   return console.log(error);
 });

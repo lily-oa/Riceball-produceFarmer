@@ -39,45 +39,37 @@ getData();
 // promise
 //批改作業
 
-function correctTest(name){
-  return new Promise((resolve, reject) => {
-    console.log('目前正在批改中...');
+function correctHomework(name){
+  return new Promise((resolved, reject) => {
+    console.log('目前正在批改作業中');
     setTimeout(() => {
-      const score = Math.round(Math.random()*100);
-      if(score>=20){
-        resolve(
+      const score = Math.round(Math.random()*100); 
+      if(score >= 60){
+        resolved(
           {
-            name,
+            name, 
             score
-          }  
+          }
         )
       }else{
-        reject('你已達退學門檻');
+        reject("準備退學吧!!")
       }
       
-    },1000);
-  });
+    }, 3000)    
+  }) 
 }
-// 第二個 promise (檢查獎勵)
-function checkReward(data){
+
+function checkAward(data){
   return new Promise((resolve, reject)=>{
-    console.log('檢查獎品中');
+    console.log('正在檢查獎品中');
     setTimeout(()=>{
-      if(data.score>=90){
-        resolve(`${data.name}獲得電影票`)
-      }else if(data.score>=60 && data.score<90){
-        resolve(`${data.name}獲得嘉獎`)
-      }else{
-        console.log(data.score);
-        reject(`你沒有獎品，打手心10下!!`)
-      }
+      console.log(data.score);
+      resolve(data.name);
     }, 1000)
   })
 }
-
-correctTest("小明")
-  .then(data => checkReward(data))
+correctHomework('小明')
+  .then(data => checkAward(data))
   .then(name => console.log(`名字是${name}`))
-  .catch(error => console.log(error));
-
-
+  
+  .catch(error => console.log(error))

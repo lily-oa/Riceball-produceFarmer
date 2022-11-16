@@ -60,16 +60,20 @@ function correctHomework(name){
 }
 
 function checkAward(data){
-  return new Promise((resolve, reject)=>{
+  return new Promise((resolved, reject)=>{
     console.log('正在檢查獎品中');
     setTimeout(()=>{
-      console.log(data.score);
-      resolve(data.name);
+      if(data.score >= 90){
+          resolved(`${data.name}獲得電影票`)
+      }else if(data.score >= 60 && data.score < 90){
+        resolved(`${data.name}獲得嘉獎`)
+      }
+      
     }, 1000)
   })
 }
 correctHomework('小明')
   .then(data => checkAward(data))
-  .then(name => console.log(`名字是${name}`))
+  .then(reword => console.log(reword))
   
   .catch(error => console.log(error))

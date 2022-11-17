@@ -36,16 +36,20 @@ function getData(){
 getData();
 
 // ---------------------學習 Promise Async Await----------
+
+
 // promise
 //批改作業
 
+// promise
+//批改作業
 function correctHomework(name){
-  return new Promise((resolved, reject) => {
+  return new Promise((resolve, reject) => {
     console.log('目前正在批改作業中');
     setTimeout(() => {
       const score = Math.round(Math.random()*100); 
       if(score >= 20){
-        resolved(
+        resolve(
           {
             name, 
             score
@@ -61,14 +65,14 @@ function correctHomework(name){
 }
 
 function checkAward(data){
-  return new Promise((resolved, reject)=>{
+  return new Promise((resolve, reject)=>{
     console.log('正在檢查獎品中');
     setTimeout(()=>{
       if(data.score >= 90){
-          resolved(`${data.name}獲得電影票`)
+          resolve(`${data.name}獲得電影票`)
       }else if(data.score >= 60 && data.score < 90){
-        resolved(`${data.name}獲得嘉獎`)
-      }else if(data.score >= 40 && data.score < 60){
+        resolve(`${data.name}獲得嘉獎`)
+      }else{
         console.log(data.score)
         reject(`你沒有獎品，打手心10下`)
       }
@@ -87,12 +91,16 @@ const init = async function(){
     const studentA = await correctHomework('小明');
     // 過一秒後才執行下段語法
     const rewardA = await checkAward(studentA);
+    console.log(rewardA);
   }catch(error){
     console.log(error);
   }
 }
 
+init();
+
 // const studentA = correctHomework('小明');
 // const rewardA = checkAward(studentA);
+
 
 

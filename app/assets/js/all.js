@@ -44,7 +44,7 @@ function correctHomework(name){
     console.log('目前正在批改作業中');
     setTimeout(() => {
       const score = Math.round(Math.random()*100); 
-      if(score >= 60){
+      if(score >= 20){
         resolved(
           {
             name, 
@@ -52,10 +52,11 @@ function correctHomework(name){
           }
         )
       }else{
+        console.log(score)
         reject("準備退學吧!!")
       }
       
-    }, 3000)    
+    }, 1000)    
   }) 
 }
 
@@ -67,6 +68,9 @@ function checkAward(data){
           resolved(`${data.name}獲得電影票`)
       }else if(data.score >= 60 && data.score < 90){
         resolved(`${data.name}獲得嘉獎`)
+      }else if(data.score >= 40 && data.score < 60){
+        console.log(data.score)
+        reject(`你沒有獎品，打手心10下`)
       }
       
     }, 1000)

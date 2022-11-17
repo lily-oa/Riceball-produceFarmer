@@ -44,15 +44,16 @@ function correctHomework(name) {
     setTimeout(function () {
       var score = Math.round(Math.random() * 100);
 
-      if (score >= 60) {
+      if (score >= 20) {
         resolved({
           name: name,
           score: score
         });
       } else {
+        console.log(score);
         reject("準備退學吧!!");
       }
-    }, 3000);
+    }, 1000);
   });
 }
 
@@ -64,6 +65,9 @@ function checkAward(data) {
         resolved("".concat(data.name, "\u7372\u5F97\u96FB\u5F71\u7968"));
       } else if (data.score >= 60 && data.score < 90) {
         resolved("".concat(data.name, "\u7372\u5F97\u5609\u734E"));
+      } else if (data.score >= 40 && data.score < 60) {
+        console.log(data.score);
+        reject("\u4F60\u6C92\u6709\u734E\u54C1\uFF0C\u6253\u624B\u5FC310\u4E0B");
       }
     }, 1000);
   });

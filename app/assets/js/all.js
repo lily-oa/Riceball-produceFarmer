@@ -79,4 +79,10 @@ function checkAward(data){
 correctHomework('小明')
   .then(data => checkAward(data))
   .then(reword => console.log(reword))
-  .catch(error => console.log(error))
+  .catch(error => console.log(error));
+
+// async 、 await 非同步的寫法
+const studentA = correctTest('小明');
+const rewardA = checkReward(studentA)
+
+

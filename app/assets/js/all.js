@@ -76,13 +76,23 @@ function checkAward(data){
     }, 1000)
   })
 }
-correctHomework('小明')
-  .then(data => checkAward(data))
-  .then(reword => console.log(reword))
-  .catch(error => console.log(error));
+// correctHomework('小明')
+//   .then(data => checkAward(data))
+//   .then(reword => console.log(reword))
+//   .catch(error => console.log(error));
 
 // async 、 await 非同步的寫法
-const studentA = correctTest('小明');
-const rewardA = checkReward(studentA)
+const init = async function(){
+  try{
+    const studentA = await correctHomework('小明');
+    // 過一秒後才執行下段語法
+    const rewardA = await checkAward(studentA);
+  }catch(error){
+    console.log(error);
+  }
+}
+
+// const studentA = correctHomework('小明');
+// const rewardA = checkAward(studentA);
 
 

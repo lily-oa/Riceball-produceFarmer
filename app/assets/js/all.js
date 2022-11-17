@@ -79,5 +79,4 @@ function checkAward(data){
 correctHomework('小明')
   .then(data => checkAward(data))
   .then(reword => console.log(reword))
-  
   .catch(error => console.log(error))

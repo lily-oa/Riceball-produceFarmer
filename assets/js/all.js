@@ -41,15 +41,17 @@ function getData() {
 getData(); // ---------------------學習 Promise Async Await----------
 // promise
 //批改作業
+// promise
+//批改作業
 
 function correctHomework(name) {
-  return new Promise(function (resolved, reject) {
+  return new Promise(function (resolve, reject) {
     console.log('目前正在批改作業中');
     setTimeout(function () {
       var score = Math.round(Math.random() * 100);
 
       if (score >= 20) {
-        resolved({
+        resolve({
           name: name,
           score: score
         });
@@ -62,14 +64,14 @@ function correctHomework(name) {
 }
 
 function checkAward(data) {
-  return new Promise(function (resolved, reject) {
+  return new Promise(function (resolve, reject) {
     console.log('正在檢查獎品中');
     setTimeout(function () {
       if (data.score >= 90) {
-        resolved("".concat(data.name, "\u7372\u5F97\u96FB\u5F71\u7968"));
+        resolve("".concat(data.name, "\u7372\u5F97\u96FB\u5F71\u7968"));
       } else if (data.score >= 60 && data.score < 90) {
-        resolved("".concat(data.name, "\u7372\u5F97\u5609\u734E"));
-      } else if (data.score >= 40 && data.score < 60) {
+        resolve("".concat(data.name, "\u7372\u5F97\u5609\u734E"));
+      } else {
         console.log(data.score);
         reject("\u4F60\u6C92\u6709\u734E\u54C1\uFF0C\u6253\u624B\u5FC310\u4E0B");
       }
@@ -100,25 +102,28 @@ var init = /*#__PURE__*/function () {
 
           case 6:
             rewardA = _context.sent;
-            _context.next = 12;
+            console.log(rewardA);
+            _context.next = 13;
             break;
 
-          case 9:
-            _context.prev = 9;
+          case 10:
+            _context.prev = 10;
             _context.t0 = _context["catch"](0);
             console.log(_context.t0);
 
-          case 12:
+          case 13:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[0, 9]]);
+    }, _callee, null, [[0, 10]]);
   }));
 
   return function init() {
     return _ref.apply(this, arguments);
   };
-}(); // const studentA = correctHomework('小明');
+}();
+
+init(); // const studentA = correctHomework('小明');
 // const rewardA = checkAward(studentA);
 //# sourceMappingURL=all.js.map

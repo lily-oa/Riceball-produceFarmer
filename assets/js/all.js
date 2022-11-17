@@ -79,5 +79,8 @@ correctHomework('小明').then(function (data) {
   return console.log(reword);
 })["catch"](function (error) {
   return console.log(error);
-});
+}); // async 、 await 非同步的寫法
+
+var studentA = correctTest('小明');
+var rewardA = checkReward(studentA);
 //# sourceMappingURL=all.js.map

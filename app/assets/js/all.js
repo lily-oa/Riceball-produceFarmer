@@ -37,70 +37,30 @@ function getData(){
 getData();
 
 // ---------------------學習 Promise Async Await----------
-
-
-
-// promise
-//批改作業
-
-// promise
-//批改作業
-function correctHomework(name){
-  return new Promise((resolve, reject) => {
-    console.log('目前正在批改作業中');
-    setTimeout(() => {
-      const score = Math.round(Math.random()*100); 
-      if(score >= 20){
-        resolve(
-          {
-            name, 
-            score
-          }
-        )
-      }else{
-        console.log(score)
-        reject("準備退學吧!!")
-      }
-      
-    }, 1000)    
-  }) 
-}
-
-function checkAward(data){
-  return new Promise((resolve, reject)=>{
-    console.log('正在檢查獎品中');
-    setTimeout(()=>{
-      if(data.score >= 90){
-          resolve(`${data.name}獲得電影票`)
-      }else if(data.score >= 60 && data.score < 90){
-        resolve(`${data.name}獲得嘉獎`)
-      }else{
-        console.log(data.score)
-        reject(`你沒有獎品，打手心10下`)
-      }
-      
-    }, 1000)
-  })
-}
-// correctHomework('小明')
-//   .then(data => checkAward(data))
-//   .then(reword => console.log(reword))
+// fetch
+const url = 'https://raw.githubusercontent.com/hexschool/2021-ui-frontend-job/master/frontend_data.json';
+// fetch(url)
+//   .then(response => response.json())
+//   .then(data => console.log(data))
 //   .catch(error => console.log(error));
 
-// async 、 await 非同步的寫法
-// async 非同步的函式
-const init = async function(){
-  try{
-    const studentA = await correctHomework('小明');
-    // 過一秒後才執行下段語法
-    const rewardA = await checkAward(studentA);
-    console.log(rewardA);
-  }catch(error){
-    console.log(error);
-  }
+// const xhr = new XMLHttpRequest();
+// xhr.open("GET", url);
+// xhr.onload = () => console.log(xhr.responseText); //載入若是成功，回傳文字資料
+// xhr.onerror = () => console.log(xhr.statusTest);  //載入失敗，回傳狀態的 code
+// xhr.send(); //把它送出去
+
+// 試著將它改寫為非定步的寫法
+function getURL(url){
+  return new Promise((resolve, reject)=>{
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", url);
+    xhr.onload = () => resolve(xhr.responseText); //載入若是成功，回傳文字資料
+    xhr.onerror = () => reject(xhr.statusTest);  //載入失敗，回傳狀態的 code 
+    xhr.send(); //把它送出去
+  })
 }
 
-init();
-
-// const studentA = correctHomework('小明');
-// const rewardA = checkAward(studentA);
+getURL(url)
+  .then(data => console.log(data))
+  .catch(error => console.log(error));

@@ -85,6 +85,7 @@ function checkAward(data) {
 //   .catch(error => console.log(error));
 
 // async 、 await 非同步的寫法
+// async 非同步的函式
 var init = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
     var studentA, rewardA;

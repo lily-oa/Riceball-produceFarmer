@@ -88,6 +88,7 @@ function checkAward(data){
 //   .catch(error => console.log(error));
 
 // async 、 await 非同步的寫法
+// async 非同步的函式
 const init = async function(){
   try{
     const studentA = await correctHomework('小明');
@@ -103,6 +104,3 @@ init();
 
 // const studentA = correctHomework('小明');
 // const rewardA = checkAward(studentA);
-
-
-

@@ -38,7 +38,7 @@ getData();
 
 // ---------------------學習 Promise Async Await----------
 // fetch
-var url = 'https://raw1.githubusercontent.com/hexschool/2021-ui-frontend-job/master/frontend_data.json';
+var url = 'https://raw.githubusercontent.com/hexschool/2021-ui-frontend-job/master/frontend_data.json';
 // fetch(url)
 //   .then(response => response.json())
 //   .then(data => console.log(data))
@@ -65,5 +65,9 @@ function getURL(url) {
   });
 }
 
-getURL(url);
+getURL(url).then(function (data) {
+  return console.log(data);
+})["catch"](function (error) {
+  return console.log(error);
+});
 //# sourceMappingURL=all.js.map

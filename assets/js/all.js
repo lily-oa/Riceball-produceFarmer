@@ -53,8 +53,8 @@ function _init() {
           case 2:
             lists = _context.sent;
             filteredLists = lists;
-            // render()
-          case 4:
+            render();
+          case 5:
           case "end":
             return _context.stop();
         }
@@ -69,8 +69,13 @@ function render() {
   var dataOrder = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : "無排序";
   // render
   var newTable = [];
-  shData.forEach(function (item) {
-    newTable += "\n      <tr class=\"\">\n      \n      </tr>\n    ";
+  showData.forEach(function (item) {
+    newTable += "\n      <tr class=\"\">\n        <td class=\"p-2\">".concat(item.作物名稱, "</td>\n        <td class=\"p-2\">").concat(item.市場名稱, "</td>\n        <td class=\"p-2\">").concat(item.上價, "</td>\n        <td class=\"p-2\">").concat(item.中價, "</td>\n        <td class=\"p-2\">").concat(item.下價, "</td>\n        <td class=\"p-2\">").concat(item.平均量, "</td>\n        <td class=\"p-2\">").concat(item.交易量, "</td>\n      </tr>\n    ");
   });
+  // display
+  table.innerHTML = newTable;
+  searchInfo.innerHTML = createSearchInfo(dataType, dataOrder, showData.length);
 }
+init();
+render();
 //# sourceMappingURL=all.js.map

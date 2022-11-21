@@ -37,17 +37,30 @@ let isDescending = false;
 async function init(){
   lists = await data
   filteredLists = lists
-  // render()
+  render()
 }
 
 function render(showData = lists, dataType="不分類", dataOrder="無排序"){
 // render
   let newTable = [];
-  shData.forEach((item)=>{
+  showData.forEach((item)=>{
     newTable += `
       <tr class="">
-      
+        <td class="p-2">${item.作物名稱}</td>
+        <td class="p-2">${item.市場名稱}</td>
+        <td class="p-2">${item.上價}</td>
+        <td class="p-2">${item.中價}</td>
+        <td class="p-2">${item.下價}</td>
+        <td class="p-2">${item.平均量}</td>
+        <td class="p-2">${item.交易量}</td>
       </tr>
     `
   })
+  // display
+  table.innerHTML = newTable;
+  searchInfo.innerHTML = createSearchInfo(dataType, dataOrder, showData.length);
+
 }
+
+init();
+render();

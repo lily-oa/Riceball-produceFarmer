@@ -42,5 +42,12 @@ async function init(){
 
 function render(showData = lists, dataType="不分類", dataOrder="無排序"){
 // render
-
+  let newTable = [];
+  shData.forEach((item)=>{
+    newTable += `
+      <tr class="">
+      
+      </tr>
+    `
+  })
 }

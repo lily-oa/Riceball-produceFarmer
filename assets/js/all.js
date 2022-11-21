@@ -35,39 +35,4 @@ function getData() {
   });
 }
 getData();
-
-// ---------------------學習 Promise Async Await----------
-// fetch
-var url = 'https://raw.githubusercontent.com/hexschool/2021-ui-frontend-job/master/frontend_data.json';
-// fetch(url)
-//   .then(response => response.json())
-//   .then(data => console.log(data))
-//   .catch(error => console.log(error));
-
-// const xhr = new XMLHttpRequest();
-// xhr.open("GET", url);
-// xhr.onload = () => console.log(xhr.responseText); //載入若是成功，回傳文字資料
-// xhr.onerror = () => console.log(xhr.statusTest);  //載入失敗，回傳狀態的 code
-// xhr.send(); //把它送出去
-
-// 試著將它改寫為非定步的寫法
-function getURL(url) {
-  return new Promise(function (resolve, reject) {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", url);
-    xhr.onload = function () {
-      return resolve(xhr.responseText);
-    }; //載入若是成功，回傳文字資料
-    xhr.onerror = function () {
-      return reject(xhr.statusTest);
-    }; //載入失敗，回傳狀態的 code 
-    xhr.send(); //把它送出去
-  });
-}
-
-getURL(url).then(function (data) {
-  return console.log(data);
-})["catch"](function (error) {
-  return console.log(error);
-});
 //# sourceMappingURL=all.js.map

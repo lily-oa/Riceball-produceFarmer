@@ -10,8 +10,8 @@ let data = fetch(API)
               .then((response) => {
                 if(!response.OK) throw Error(response.statusText)
                   return response.json()
-                  console.log(response)
               })
+              .then(data => console.log(data))
               .catch(error => console.log(error))
 let lists = [];
 let filteredLists = [];

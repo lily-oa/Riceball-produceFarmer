@@ -34,7 +34,7 @@ let typeSearched = false;
 let isDescending = false;
 
 // 初始化
-async function init(){
+async function init() {
   lists = await data
   filteredLists = lists
   render()

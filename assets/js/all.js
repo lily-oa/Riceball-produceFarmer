@@ -67,5 +67,10 @@ function render() {
   var showData = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : lists;
   var dataType = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "不分類";
   var dataOrder = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : "無排序";
-} // render
+  // render
+  var newTable = [];
+  shData.forEach(function (item) {
+    newTable += "\n      <tr class=\"\">\n      \n      </tr>\n    ";
+  });
+}
 //# sourceMappingURL=all.js.map

@@ -68,7 +68,7 @@ function createSearchInfo(dataType, dataOrder, dataNumber) {
   if (!currentSearch) {
     return currentSearch = '無搜尋';
   } else {
-    return "\u4E00\u5171\u6709<span class=\"\">".concat(dataNumber, "</span> \u7B46\u8CC7\u6599<br>(<span>").concat(dataType, " + ").concat(dataOrder, " + ").concat(currentSearch, "</span>)");
+    return "\n    \u4E00\u5171\u6709<span class=\"\">".concat(dataNumber, "</span> \u7B46\u8CC7\u6599<br>(<span>").concat(dataType, " + ").concat(dataOrder, " + ").concat(currentSearch, "</span>)\n    ");
   }
 }
 function render() {

@@ -10,6 +10,7 @@ let data = fetch(API)
               .then((response) => {
                 if(!response.OK) throw Error(response.statusText)
                   return response.json()
+                  console.log(response)
               })
               .catch(error => console.log(error))
 let lists = [];
@@ -34,33 +35,33 @@ let typeSearched = false;
 let isDescending = false;
 
 // 初始化
-async function init() {
-  lists = await data
-  filteredLists = lists
-  render()
-}
+// async function init() {
+//   lists = await data
+//   filteredLists = lists
+//   render()
+// }
 
-function render(showData = lists, dataType="不分類", dataOrder="無排序"){
-// render
-  let newTable = [];
-  showData.forEach((item)=>{
-    newTable += `
-      <tr class="">
-        <td class="p-2">${item.作物名稱}</td>
-        <td class="p-2">${item.市場名稱}</td>
-        <td class="p-2">${item.上價}</td>
-        <td class="p-2">${item.中價}</td>
-        <td class="p-2">${item.下價}</td>
-        <td class="p-2">${item.平均量}</td>
-        <td class="p-2">${item.交易量}</td>
-      </tr>
-    `
-  })
+// function render(showData = lists, dataType="不分類", dataOrder="無排序"){
+// // render
+//   let newTable = [];
+//   showData.forEach((item)=>{
+//     newTable += `
+//       <tr class="">
+//         <td class="p-2">${item.作物名稱}</td>
+//         <td class="p-2">${item.市場名稱}</td>
+//         <td class="p-2">${item.上價}</td>
+//         <td class="p-2">${item.中價}</td>
+//         <td class="p-2">${item.下價}</td>
+//         <td class="p-2">${item.平均量}</td>
+//         <td class="p-2">${item.交易量}</td>
+//       </tr>
+//     `
+//   })
   // display
-  table.innerHTML = newTable;
-  searchInfo.innerHTML = createSearchInfo(dataType, dataOrder, showData.length);
+//   table.innerHTML = newTable;
+//   searchInfo.innerHTML = createSearchInfo(dataType, dataOrder, showData.length);
 
-}
+// }
 
-init();
-render();
+// init();
+// render();

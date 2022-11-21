@@ -10,7 +10,8 @@ var API = 'https://hexschool.github.io/js-filter-data/data.json';
 var data = fetch(API).then(function (response) {
   if (!response.OK) throw Error(response.statusText);
   return response.json();
-  console.log(response);
+}).then(function (data) {
+  return console.log(data);
 })["catch"](function (error) {
   return console.log(error);
 });

@@ -2,10 +2,16 @@
 //搜尋(currentSearch)、排序(currentOrder)、種類(currentType)之間的交叉搜尋
 //清除查詢按鈕 (resetBtn)
 //搜尋結果現況展示 (info)
+// 抓取資料上 - 採用原生語法 fetch。 Async / Await 做非同步處裡。
 
 // data
 const API = 'https://hexschool.github.io/js-filter-data/data.json';
-let data; 
+let data = fetch(API)
+              .then((response) => {
+                if(!response.OK) throw Error(response.statusText)
+                  return response.json()
+              })
+              .catch(error => console.log(error))
 let lists = [];
 let filteredLists = [];
 
@@ -27,12 +33,14 @@ let currentSearched = '';
 let typeSearched = false;
 let isDescending = false;
 
-function getData(){
-  axios.get(API)
-  .then(function(response){
-    data = response.data.filter(item => item.作物名稱);
-  });
+// 初始化
+async function init(){
+  lists = await data
+  filteredLists = lists
+  // render()
 }
 
-getData();
+function render(showData = lists, dataType="不分類", dataOrder="無排序"){
+// render
 
+}

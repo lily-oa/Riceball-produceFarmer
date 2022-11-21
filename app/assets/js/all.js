@@ -27,7 +27,7 @@ const advanceSort = document.querySelector('[data-priceNet-advanceSort]');
 // State
 let currentType = undefined;
 let currentOrder = undefined;
-let currentSearched = '';
+let currentSearch = '';
 let typeSearched = false;
 let isDescending = false;
 
@@ -36,6 +36,14 @@ async function init() {
   lists = await data
   filteredLists = lists
   render()
+}
+
+function createSearchInfo(dataType, dataOrder, dataNumber){
+  if(!currentSearch){
+    return currentSearch = '無搜尋';
+  }else{
+    return `一共有<span class="">${dataNumber}</span> 筆資料<br>(<span>${dataType} + ${dataOrder} + ${currentSearch}</span>)`
+  }
 }
 
 function render(showData = lists, dataType="不分類", dataOrder="無排序"){
@@ -57,7 +65,6 @@ function render(showData = lists, dataType="不分類", dataOrder="無排序"){
 //display
   table.innerHTML = newTable;
   searchInfo.innerHTML = createSearchInfo(dataType, dataOrder, showData.length);
-
 }
 
 init();

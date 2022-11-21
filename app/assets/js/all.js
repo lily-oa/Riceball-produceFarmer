@@ -42,7 +42,9 @@ function createSearchInfo(dataType, dataOrder, dataNumber){
   if(!currentSearch){
     return currentSearch = '無搜尋';
   }else{
-    return `一共有<span class="">${dataNumber}</span> 筆資料<br>(<span>${dataType} + ${dataOrder} + ${currentSearch}</span>)`
+    return `
+    一共有<span class="">${dataNumber}</span> 筆資料<br>(<span>${dataType} + ${dataOrder} + ${currentSearch}</span>)
+    `
   }
 }
 

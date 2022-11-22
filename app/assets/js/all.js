@@ -38,6 +38,19 @@ async function init() {
   render()
 }
 
+// 排序
+function changeOrder(orderName, isDescending){
+  if(isDescending){
+      filterLists.sort((a, b) => b[orderName] - a[orderName])
+      currentOrder = `${orderName}降序`
+  }
+  if(!isDescending){
+    currentOrder = `${orderName}升序`
+    filterLists.sort((a, b) => a[orderName] - b[orderName])
+  }
+  render(filterLists, currentType, currentOrder)
+}
+
 function createSearchInfo(dataType, dataOrder, dataNumber){
   if(!currentSearch){
     return currentSearch = '無搜尋';

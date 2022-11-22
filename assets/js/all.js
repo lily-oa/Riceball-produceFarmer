@@ -42,7 +42,7 @@ var isDescending = false;
 // 初始化
 function init() {
   return _init.apply(this, arguments);
-}
+} // 排序
 function _init() {
   _init = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
     return _regeneratorRuntime().wrap(function _callee$(_context) {
@@ -63,6 +63,21 @@ function _init() {
     }, _callee);
   }));
   return _init.apply(this, arguments);
+}
+function changeOrder(orderName, isDescending) {
+  if (isDescending) {
+    filterLists.sort(function (a, b) {
+      return b[orderName] - a[orderName];
+    });
+    currentOrder = "".concat(orderName, "\u964D\u5E8F");
+  }
+  if (!isDescending) {
+    currentOrder = "".concat(orderName, "\u5347\u5E8F");
+    filterLists.sort(function (a, b) {
+      return a[orderName] - b[orderName];
+    });
+  }
+  render(filterLists, currentType, currentOrder);
 }
 function createSearchInfo(dataType, dataOrder, dataNumber) {
   if (!currentSearch) {

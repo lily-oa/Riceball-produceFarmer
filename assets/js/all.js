@@ -66,18 +66,18 @@ function _init() {
 }
 function changeOrder(orderName, isDescending) {
   if (isDescending) {
-    filterLists.sort(function (a, b) {
+    filteredLists.sort(function (a, b) {
       return b[orderName] - a[orderName];
     });
     currentOrder = "".concat(orderName, "\u964D\u5E8F");
   }
   if (!isDescending) {
     currentOrder = "".concat(orderName, "\u5347\u5E8F");
-    filterLists.sort(function (a, b) {
+    filteredLists.sort(function (a, b) {
       return a[orderName] - b[orderName];
     });
   }
-  render(filterLists, currentType, currentOrder);
+  render(filteredLists, currentType, currentOrder);
 }
 function createSearchInfo(dataType, dataOrder, dataNumber) {
   if (!currentSearch) {
@@ -101,4 +101,37 @@ function render() {
 }
 init();
 render();
+
+//清除
+function reset() {
+  input.value = '';
+  type[0].selected = 'selected';
+  order[0].selected = 'selected';
+  currentType = undefined;
+  currentOrder = undefined;
+  currentSearch = '';
+  typeSearched = false;
+  filteredLists = lists;
+  resetOrderIcon();
+  isDescending = false;
+  render();
+}
+function resetOrderIcon() {
+  var upBtns = document.querySelectorAll('[data-priceNet-up]');
+  upBtns.forEach(function (btn) {
+    btn.classList.add('sort--active');
+    btn.nextElementSibling.classList.remove('sort--active');
+  });
+}
+function search() {
+  filteredLists = filteredLists.filter(function (item) {
+    if (item.作物名稱 === null) {
+      return false;
+    } else {
+      return item.作物名稱.match(input.value);
+    }
+  });
+}
+
+// Search lists by input
 //# sourceMappingURL=all.js.map

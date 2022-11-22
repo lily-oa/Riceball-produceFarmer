@@ -41,14 +41,14 @@ async function init() {
 // 排序
 function changeOrder(orderName, isDescending){
   if(isDescending){
-      filterLists.sort((a, b) => b[orderName] - a[orderName])
+    filteredLists.sort((a, b) => b[orderName] - a[orderName])
       currentOrder = `${orderName}降序`
   }
   if(!isDescending){
     currentOrder = `${orderName}升序`
-    filterLists.sort((a, b) => a[orderName] - b[orderName])
+    filteredLists.sort((a, b) => a[orderName] - b[orderName])
   }
-  render(filterLists, currentType, currentOrder)
+  render(filteredLists, currentType, currentOrder)
 }
 
 function createSearchInfo(dataType, dataOrder, dataNumber){
@@ -84,3 +84,38 @@ function render(showData = lists, dataType="不分類", dataOrder="無排序"){
 
 init();
 render();
+
+//清除
+function reset(){
+  input.value = '';
+  type[0].selected = 'selected';
+  order[0].selected = 'selected';
+  currentType = undefined;
+  currentOrder = undefined;
+  currentSearch = '';
+  typeSearched = false;
+  filteredLists = lists;
+  resetOrderIcon();
+  isDescending = false;
+  render();
+}
+
+function resetOrderIcon(){
+  const upBtns = document.querySelectorAll('[data-priceNet-up]')
+  upBtns.forEach(btn =>{
+    btn.classList.add('sort--active');
+    btn.nextElementSibling.classList.remove('sort--active')
+  })
+}
+
+function search(){
+  filteredLists = filteredLists.filter((item) =>{
+    if(item.作物名稱 === null){
+      return false;
+    }else{
+      return item.作物名稱.match(input.value);
+    }
+  })
+}  
+
+// Search lists by input

@@ -48,7 +48,7 @@ function changeOrder(orderName, isDescending){
     currentOrder = `${orderName}升序`
     filteredLists.sort((a, b) => a[orderName] - b[orderName])
   }
-  render(filteredLists, currentType, currentOrder)  //看不懂，不明白參數部份
+  render(filteredLists, currentType, currentOrder)  
 }
 
 function createSearchInfo(dataNumber, dataType, dataOrder){
@@ -82,9 +82,6 @@ function render(showData = lists, dataType="不分類", dataOrder="無排序"){
   searchInfo.innerHTML = createSearchInfo(showData.length, dataType, dataOrder);
 }
 
-init();
-render();
-
 //清除
 function reset(){
   input.value = '';
@@ -113,9 +110,55 @@ function search(){
     if(item.作物名稱 === null){
       return false;
     }else{
-      return item.作物名稱.match(input.value);
+      return item.作物名稱.match(input.value); //輸入值 必須和 item.作物名稱 一樣
     }
   })
 }  
 
+init();
+render();
+
 // Search lists by input
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  if(input.value.trim() === ''){
+    reset();
+    return;
+  }else{
+    currentSearch = input.value;
+    search();
+    render(filteredLists);
+  }
+});
+
+// Active reset
+resetBtn.addEventListener('click', e => {
+  reset();
+})
+
+//Render selected order
+order.addEventListener('change', e => {
+  changeOrder(e.target.value);
+})
+
+// Render selected type
+type.addEventListener('change', e => {
+  currentType = e.target.options[e.target.selectedIndex].text //Current selected option item's Text
+  if(e.target.value === 'none'){
+    filteredLists = lists
+    search();
+    render(filteredLists, undefined, currentOrder);
+    return;
+  }
+  if(currentSearch != '' && !typeSearched){
+    filteredLists = filteredLists.filter((item)=>{
+    return item.種類代碼 === e.target.value;
+    })
+    typeSearched = true;
+  }
+  filteredLists = lists.filter((item) => item.種類代碼 === e.target.value)
+  if(typeSearched){ search()}
+  render(filteredLists, currentType, changeOrder)
+})
+
+// Asecending & Descending order toggler

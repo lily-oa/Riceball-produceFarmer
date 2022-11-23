@@ -77,9 +77,8 @@ function changeOrder(orderName, isDescending) {
       return a[orderName] - b[orderName];
     });
   }
-  render(filteredLists, currentType, currentOrder); //看不懂，不明白參數部份
+  render(filteredLists, currentType, currentOrder);
 }
-
 function createSearchInfo(dataNumber, dataType, dataOrder) {
   if (!currentSearch) {
     return currentSearch = '無搜尋';
@@ -100,8 +99,6 @@ function render() {
   table.innerHTML = newTable;
   searchInfo.innerHTML = createSearchInfo(showData.length, dataType, dataOrder);
 }
-init();
-render();
 
 //清除
 function reset() {
@@ -129,10 +126,60 @@ function search() {
     if (item.作物名稱 === null) {
       return false;
     } else {
-      return item.作物名稱.match(input.value);
+      return item.作物名稱.match(input.value); //輸入值 必須和 item.作物名稱 一樣
     }
   });
 }
 
+init();
+render();
+
 // Search lists by input
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  if (input.value.trim() === '') {
+    reset();
+    return;
+  } else {
+    currentSearch = input.value;
+    search();
+    render(filteredLists);
+  }
+});
+
+// Active reset
+resetBtn.addEventListener('click', function (e) {
+  reset();
+});
+
+//Render selected order
+order.addEventListener('change', function (e) {
+  changeOrder(e.target.value);
+});
+
+// Render selected type
+type.addEventListener('change', function (e) {
+  currentType = e.target.options[e.target.selectedIndex].text; //Current selected option item's Text
+  if (e.target.value === 'none') {
+    filteredLists = lists;
+    search();
+    render(filteredLists, undefined, currentOrder);
+    return;
+  }
+  if (currentSearch != '' && !typeSearched) {
+    filteredLists = filteredLists.filter(function (item) {
+      return item.種類代碼 === e.target.value;
+    });
+    typeSearched = true;
+  }
+  filteredLists = lists.filter(function (item) {
+    return item.種類代碼 === e.target.value;
+  });
+  if (typeSearched) {
+    search();
+  }
+  render(filteredLists, currentType, changeOrder);
+});
+
+// Asecending & Descending order toggler
 //# sourceMappingURL=all.js.map

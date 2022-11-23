@@ -48,7 +48,7 @@ function changeOrder(orderName, isDescending){
     currentOrder = `${orderName}升序`
     filteredLists.sort((a, b) => a[orderName] - b[orderName])
   }
-  render(filteredLists, currentType, currentOrder)
+  render(filteredLists, currentType, currentOrder)  //看不懂，不明白參數部份
 }
 
 function createSearchInfo(dataType, dataOrder, dataNumber){

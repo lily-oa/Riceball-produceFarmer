@@ -77,8 +77,9 @@ function changeOrder(orderName, isDescending) {
       return a[orderName] - b[orderName];
     });
   }
-  render(filteredLists, currentType, currentOrder);
+  render(filteredLists, currentType, currentOrder); //看不懂，不明白參數部份
 }
+
 function createSearchInfo(dataType, dataOrder, dataNumber) {
   if (!currentSearch) {
     return currentSearch = '無搜尋';

@@ -51,7 +51,7 @@ function changeOrder(orderName, isDescending){
   render(filteredLists, currentType, currentOrder)  //看不懂，不明白參數部份
 }
 
-function createSearchInfo(dataType, dataOrder, dataNumber){
+function createSearchInfo(dataNumber, dataType, dataOrder){
   if(!currentSearch){
     return currentSearch = '無搜尋';
   }else{
@@ -79,7 +79,7 @@ function render(showData = lists, dataType="不分類", dataOrder="無排序"){
   })
 //display
   table.innerHTML = newTable;
-  searchInfo.innerHTML = createSearchInfo(dataType, dataOrder, showData.length);
+  searchInfo.innerHTML = createSearchInfo(showData.length, dataType, dataOrder);
 }
 
 init();

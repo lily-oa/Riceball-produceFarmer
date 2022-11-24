@@ -178,12 +178,11 @@ type.addEventListener('change', function (e) {
   if (typeSearched) {
     search();
   }
-  render(filteredLists, currentType, changeOrder);
+  render(filteredLists, currentType, currentOrder);
 });
 
-// Asecending & Descending order toggler
-
 // Asecending &Descending order toggler
+// 升序和降序切換器
 advanceSort.addEventListener('click', function (e) {
   var orderType = '';
   var orderName = '';
@@ -193,16 +192,19 @@ advanceSort.addEventListener('click', function (e) {
   var upBtn = e.target.parentNode.querySelector('[data-priceNet-up]');
   var downBtn = e.target.parentNode.querySelector('[data-priceNet-down]');
   // Already sort by descending
-});
 
-//Toggle icon appearance
-resetOrderIcon();
-if (isDescending) {
-  upBtn.classList.remove('sort--active');
-  downBtn.classList.add('sort--active');
-} else {
-  upBtn.classList.add('sort--active');
-  downBtn.classList.remove('sort--active');
-}
-changeOrder(orderName, isDescending);
+  isDescending = !isDescending;
+  orderName = e.target.parentNode.innerText;
+
+  //Toggle icon appearance
+  resetOrderIcon();
+  if (isDescending) {
+    upBtn.classList.remove('sort--active');
+    downBtn.classList.add('sort--active');
+  } else {
+    upBtn.classList.add('sort--active');
+    downBtn.classList.remove('sort--active');
+  }
+  changeOrder(orderName, isDescending);
+});
 //# sourceMappingURL=all.js.map

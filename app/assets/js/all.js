@@ -150,22 +150,22 @@ type.addEventListener('change', e => {
     render(filteredLists, undefined, currentOrder);
     return;
   }
+
   if(currentSearch != '' && !typeSearched){
     filteredLists = filteredLists.filter((item)=>{
     return item.種類代碼 === e.target.value;
     })
     typeSearched = true;
   }
+
   filteredLists = lists.filter((item) => item.種類代碼 === e.target.value)
   if(typeSearched){ search()}
-  render(filteredLists, currentType, changeOrder)
+  render(filteredLists, currentType, currentOrder)
+  
 })
 
-// Asecending & Descending order toggler
-
-
-
 // Asecending &Descending order toggler
+// 升序和降序切換器
 advanceSort.addEventListener('click', e =>{
   let orderType = '';
   let orderName = '';
@@ -173,7 +173,10 @@ advanceSort.addEventListener('click', e =>{
   const upBtn = e.target.parentNode.querySelector('[data-priceNet-up]');
   const downBtn = e.target.parentNode.querySelector('[data-priceNet-down]');
   // Already sort by descending
-})
+
+  isDescending = !isDescending;
+  orderName = e.target.parentNode.innerText;
+
 
 //Toggle icon appearance
 resetOrderIcon();
@@ -185,3 +188,8 @@ if(isDescending){
   downBtn.classList.remove('sort--active');
 }
 changeOrder(orderName, isDescending);
+})
+
+
+
+

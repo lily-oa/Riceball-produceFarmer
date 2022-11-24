@@ -162,3 +162,26 @@ type.addEventListener('change', e => {
 })
 
 // Asecending & Descending order toggler
+
+
+
+// Asecending &Descending order toggler
+advanceSort.addEventListener('click', e =>{
+  let orderType = '';
+  let orderName = '';
+  if(!e.target.nodeName === 'LABEL'){ return }
+  const upBtn = e.target.parentNode.querySelector('[data-priceNet-up]');
+  const downBtn = e.target.parentNode.querySelector('[data-priceNet-down]');
+  // Already sort by descending
+})
+
+//Toggle icon appearance
+resetOrderIcon();
+if(isDescending){
+  upBtn.classList.remove('sort--active');
+  downBtn.classList.add('sort--active');
+}else{
+  upBtn.classList.add('sort--active');
+  downBtn.classList.remove('sort--active');
+}
+changeOrder(orderName, isDescending);

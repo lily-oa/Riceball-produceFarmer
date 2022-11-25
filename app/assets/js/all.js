@@ -79,7 +79,7 @@ function render(showData = lists, dataType="不分類", dataOrder="無排序"){
   })
 //display
   table.innerHTML = newTable;
-  searchInfo.innerHTML = createSearchInfo(showData.length, dataType, dataOrder);
+  searchInfo.innerHTML = createSearchInfo(dataType, dataOrder, showData.length);
 }
 
 //清除

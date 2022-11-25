@@ -79,12 +79,13 @@ function changeOrder(orderName, isDescending) {
   }
   render(filteredLists, currentType, currentOrder);
 }
-function createSearchInfo(dataNumber, dataType, dataOrder) {
+
+//檢查到這
+function createSearchInfo(dataType, dataOrder, dataNumber) {
   if (!currentSearch) {
-    return currentSearch = '無搜尋';
-  } else {
-    return "\n    \u4E00\u5171\u6709<span class=\"\">".concat(dataNumber, "</span> \u7B46\u8CC7\u6599<br>(<span>").concat(dataType, " + ").concat(dataOrder, " + ").concat(currentSearch, "</span>)\n    ");
+    currentSearch = '無搜尋';
   }
+  return "\n    \u4E00\u5171\u6709<span class=\"\">".concat(dataNumber, "</span> \u7B46\u8CC7\u6599<br>(<span>").concat(dataType, " + ").concat(dataOrder, " + ").concat(currentSearch, "</span>)\n    ");
 }
 function render() {
   var showData = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : lists;
@@ -93,7 +94,7 @@ function render() {
   // render
   var newTable = [];
   showData.forEach(function (item) {
-    newTable += "\n      <tr class=\"\">\n        <td class=\"p-2\">".concat(item.作物名稱, "</td>\n        <td class=\"p-2\">").concat(item.市場名稱, "</td>\n        <td class=\"p-2\">").concat(item.上價, "</td>\n        <td class=\"p-2\">").concat(item.中價, "</td>\n        <td class=\"p-2\">").concat(item.下價, "</td>\n        <td class=\"p-2\">").concat(item.平均量, "</td>\n        <td class=\"p-2\">").concat(item.交易量, "</td>\n      </tr>\n    ");
+    newTable += "\n      <tr class=\"\">\n        <td class=\"p-2\">".concat(item.作物名稱, "</td>\n        <td class=\"p-2\">").concat(item.市場名稱, "</td>\n        <td class=\"p-2\">").concat(item.上價, "</td>\n        <td class=\"p-2\">").concat(item.中價, "</td>\n        <td class=\"p-2\">").concat(item.下價, "</td>\n        <td class=\"p-2\">").concat(item.平均價, "</td>\n        <td class=\"p-2\">").concat(item.交易量, "</td>\n      </tr>\n    ");
   });
   //display
   table.innerHTML = newTable;
@@ -140,11 +141,10 @@ form.addEventListener('submit', function (e) {
   if (input.value.trim() === '') {
     reset();
     return;
-  } else {
-    currentSearch = input.value;
-    search();
-    render(filteredLists);
   }
+  currentSearch = input.value;
+  search();
+  render(filteredLists);
 });
 
 // Active reset
@@ -167,7 +167,7 @@ type.addEventListener('change', function (e) {
     return;
   }
   if (currentSearch != '' && !typeSearched) {
-    filteredLists = filteredLists.filter(function (item) {
+    filteredLists = lists.filter(function (item) {
       return item.種類代碼 === e.target.value;
     });
     typeSearched = true;

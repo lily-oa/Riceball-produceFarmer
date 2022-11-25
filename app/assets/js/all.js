@@ -51,14 +51,14 @@ function changeOrder(orderName, isDescending){
   render(filteredLists, currentType, currentOrder)  
 }
 
-function createSearchInfo(dataNumber, dataType, dataOrder){
-  if(!currentSearch){
-    return currentSearch = '無搜尋';
-  }else{
+
+
+//檢查到這
+function createSearchInfo(dataType, dataOrder, dataNumber){
+  if(!currentSearch){ currentSearch = '無搜尋';}
     return `
     一共有<span class="">${dataNumber}</span> 筆資料<br>(<span>${dataType} + ${dataOrder} + ${currentSearch}</span>)
     `
-  }
 }
 
 function render(showData = lists, dataType="不分類", dataOrder="無排序"){
@@ -72,7 +72,7 @@ function render(showData = lists, dataType="不分類", dataOrder="無排序"){
         <td class="p-2">${item.上價}</td>
         <td class="p-2">${item.中價}</td>
         <td class="p-2">${item.下價}</td>
-        <td class="p-2">${item.平均量}</td>
+        <td class="p-2">${item.平均價}</td>
         <td class="p-2">${item.交易量}</td>
       </tr>
     `
@@ -124,12 +124,14 @@ form.addEventListener('submit', e => {
   if(input.value.trim() === ''){
     reset();
     return;
-  }else{
+  }
     currentSearch = input.value;
     search();
     render(filteredLists);
-  }
+  
 });
+
+
 
 // Active reset
 resetBtn.addEventListener('click', e => {
@@ -152,9 +154,7 @@ type.addEventListener('change', e => {
   }
 
   if(currentSearch != '' && !typeSearched){
-    filteredLists = filteredLists.filter((item)=>{
-    return item.種類代碼 === e.target.value;
-    })
+    filteredLists = lists.filter((item) => item.種類代碼 === e.target.value)
     typeSearched = true;
   }
 
@@ -163,6 +163,8 @@ type.addEventListener('change', e => {
   render(filteredLists, currentType, currentOrder)
   
 })
+
+
 
 // Asecending &Descending order toggler
 // 升序和降序切換器

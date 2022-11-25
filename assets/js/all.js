@@ -98,7 +98,7 @@ function render() {
   });
   //display
   table.innerHTML = newTable;
-  searchInfo.innerHTML = createSearchInfo(showData.length, dataType, dataOrder);
+  searchInfo.innerHTML = createSearchInfo(dataType, dataOrder, showData.length);
 }
 
 //清除

@@ -55,7 +55,7 @@ function changeOrder(orderName, isDescending){
 
 //檢查到這
 function createSearchInfo(dataType, dataOrder, dataNumber){
-  if(!currentSearch){ currentSearch = '無搜尋';}
+  if(!currentSearch){ currentSearch = '無搜尋';}  //看不懂
     return `
     一共有<span class="">${dataNumber}</span> 筆資料<br>(<span>${dataType} + ${dataOrder} + ${currentSearch}</span>)
     `

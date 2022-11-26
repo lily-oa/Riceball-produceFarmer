@@ -84,7 +84,7 @@ function changeOrder(orderName, isDescending) {
 function createSearchInfo(dataType, dataOrder, dataNumber) {
   if (!currentSearch) {
     currentSearch = '無搜尋';
-  }
+  } //看不懂
   return "\n    \u4E00\u5171\u6709<span class=\"\">".concat(dataNumber, "</span> \u7B46\u8CC7\u6599<br>(<span>").concat(dataType, " + ").concat(dataOrder, " + ").concat(currentSearch, "</span>)\n    ");
 }
 function render() {

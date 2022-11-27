@@ -51,9 +51,6 @@ function changeOrder(orderName, isDescending){
   render(filteredLists, currentType, currentOrder)  
 }
 
-
-
-//檢查到這
 function createSearchInfo(dataType, dataOrder, dataNumber){
   if(!currentSearch){ currentSearch = '無搜尋';}  //看不懂
     return `
@@ -66,7 +63,7 @@ function render(showData = lists, dataType="不分類", dataOrder="無排序"){
   let newTable = [];
   showData.forEach((item)=>{
     newTable += `
-      <tr class="">
+      <tr class="Table-hover">
         <td class="p-2">${item.作物名稱}</td>
         <td class="p-2">${item.市場名稱}</td>
         <td class="p-2">${item.上價}</td>

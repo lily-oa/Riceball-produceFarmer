@@ -181,10 +181,33 @@ type.addEventListener('change', function (e) {
 
 // Asecending &Descending order toggler
 // 升序和降序切換器
-advanceSort.addEventListener('click', function (e) {
-  var orderType = '';
-  var orderName = '';
-  if (!e.target.nodeName === 'LABEL') {
+// advanceSort.addEventListener('click', e =>{
+//   let orderType = '';
+//   let orderName = '';
+//   if(!e.target.nodeName === 'LABEL'){ return }
+//   const upBtn = e.target.parentNode.querySelector('[data-priceNet-up]');
+//   const downBtn = e.target.parentNode.querySelector('[data-priceNet-down]');
+//   // Already sort by descending
+
+//   isDescending = !isDescending;
+//   orderName = e.target.parentNode.innerText;
+
+// //Toggle icon appearance
+// resetOrderIcon();
+// if(isDescending){
+//   upBtn.classList.remove('sort--active');
+//   downBtn.classList.add('sort--active');
+// }else{
+//   upBtn.classList.add('sort--active');
+//   downBtn.classList.remove('sort--active');
+// }
+// changeOrder(orderName, isDescending);
+// })
+
+advanceSort.addEventListener("click", function (e) {
+  var orderType = "";
+  var orderName = "";
+  if (!(e.target.nodeName === "LABEL")) {
     return;
   }
   var upBtn = e.target.parentNode.querySelector('[data-priceNet-up]');
@@ -194,7 +217,7 @@ advanceSort.addEventListener('click', function (e) {
   isDescending = !isDescending;
   orderName = e.target.parentNode.innerText;
 
-  //Toggle icon appearance
+  // Toggle icon appearance
   resetOrderIcon();
   if (isDescending) {
     upBtn.classList.remove('sort--active');

@@ -79,8 +79,6 @@ function changeOrder(orderName, isDescending) {
   }
   render(filteredLists, currentType, currentOrder);
 }
-
-//檢查到這
 function createSearchInfo(dataType, dataOrder, dataNumber) {
   if (!currentSearch) {
     currentSearch = '無搜尋';
@@ -94,7 +92,7 @@ function render() {
   // render
   var newTable = [];
   showData.forEach(function (item) {
-    newTable += "\n      <tr class=\"\">\n        <td class=\"p-2\">".concat(item.作物名稱, "</td>\n        <td class=\"p-2\">").concat(item.市場名稱, "</td>\n        <td class=\"p-2\">").concat(item.上價, "</td>\n        <td class=\"p-2\">").concat(item.中價, "</td>\n        <td class=\"p-2\">").concat(item.下價, "</td>\n        <td class=\"p-2\">").concat(item.平均價, "</td>\n        <td class=\"p-2\">").concat(item.交易量, "</td>\n      </tr>\n    ");
+    newTable += "\n      <tr class=\"Table-hover\">\n        <td class=\"p-2\">".concat(item.作物名稱, "</td>\n        <td class=\"p-2\">").concat(item.市場名稱, "</td>\n        <td class=\"p-2\">").concat(item.上價, "</td>\n        <td class=\"p-2\">").concat(item.中價, "</td>\n        <td class=\"p-2\">").concat(item.下價, "</td>\n        <td class=\"p-2\">").concat(item.平均價, "</td>\n        <td class=\"p-2\">").concat(item.交易量, "</td>\n      </tr>\n    ");
   });
   //display
   table.innerHTML = newTable;

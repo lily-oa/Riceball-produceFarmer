@@ -12853,4 +12853,8 @@ body {
   opacity: .4;
 }
 
+.Table-hover:hover {
+  background: #f8d45a;
+}
+
 /*# sourceMappingURL=all.css.map */

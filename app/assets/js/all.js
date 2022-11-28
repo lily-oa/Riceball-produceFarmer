@@ -21,8 +21,8 @@ const searchInfo = document.querySelector('[data-priceNet-searchInfo]');
 const info = document.querySelector('[data-priceNet-info]'); 
 const order = document.querySelector('[data-priceNet-order]'); 
 const type = document.querySelector('[data-priceNet-type]'); 
-const table = document.querySelector('[data-priceNet-table]'); 
-const advanceSort = document.querySelector('[data-priceNet-advanceSort]'); 
+const table = document.querySelector('[data-priceNet-table]'); //tbody
+const advanceSort = document.querySelector('[data-priceNet-advanceSort]'); // table thead 標頭
 
 // State
 let currentType = undefined;

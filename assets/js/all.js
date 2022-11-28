@@ -29,8 +29,8 @@ var searchInfo = document.querySelector('[data-priceNet-searchInfo]');
 var info = document.querySelector('[data-priceNet-info]');
 var order = document.querySelector('[data-priceNet-order]');
 var type = document.querySelector('[data-priceNet-type]');
-var table = document.querySelector('[data-priceNet-table]');
-var advanceSort = document.querySelector('[data-priceNet-advanceSort]');
+var table = document.querySelector('[data-priceNet-table]'); //tbody
+var advanceSort = document.querySelector('[data-priceNet-advanceSort]'); // table thead 標頭
 
 // State
 var currentType = undefined;

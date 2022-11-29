@@ -65,12 +65,14 @@ function _init() {
   return _init.apply(this, arguments);
 }
 function changeOrder(orderName, isDescending) {
+  //依降序
   if (isDescending) {
     filteredLists.sort(function (a, b) {
       return b[orderName] - a[orderName];
     });
     currentOrder = "".concat(orderName, "\u964D\u5E8F");
   }
+  //依升序
   if (!isDescending) {
     currentOrder = "".concat(orderName, "\u5347\u5E8F");
     filteredLists.sort(function (a, b) {
@@ -82,7 +84,7 @@ function changeOrder(orderName, isDescending) {
 function createSearchInfo(dataType, dataOrder, dataNumber) {
   if (!currentSearch) {
     currentSearch = '無搜尋';
-  } //看不懂
+  } //當沒有內容(空字串)時再轉為布林值翻轉一次就會得到 true 的結果，有字串時才為false，會代入字串
   return "\n    \u4E00\u5171\u6709<span class=\"\">".concat(dataNumber, "</span> \u7B46\u8CC7\u6599<br>(<span>").concat(dataType, " + ").concat(dataOrder, " + ").concat(currentSearch, "</span>)\n    ");
 }
 function render() {
@@ -113,6 +115,8 @@ function reset() {
   isDescending = false;
   render();
 }
+
+// 呼叫函式將所有畫面上的升降序按鈕返回初始值
 function resetOrderIcon() {
   var upBtns = document.querySelectorAll('[data-priceNet-up]');
   upBtns.forEach(function (btn) {
@@ -120,6 +124,8 @@ function resetOrderIcon() {
     btn.nextElementSibling.classList.remove('sort--active');
   });
 }
+
+// 傳入值重新依if條件篩選出符合條件的內容，組合後回傳新陣列
 function search() {
   filteredLists = filteredLists.filter(function (item) {
     if (item.作物名稱 === null) {
@@ -178,6 +184,8 @@ type.addEventListener('change', function (e) {
   }
   render(filteredLists, currentType, currentOrder);
 });
+
+// 這一段有錯
 
 // Asecending &Descending order toggler
 // 升序和降序切換器

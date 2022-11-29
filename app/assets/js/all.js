@@ -40,10 +40,12 @@ async function init() {
 
 // 排序
 function changeOrder(orderName, isDescending){
+  //依降序
   if(isDescending){
     filteredLists.sort((a, b) => b[orderName] - a[orderName])
       currentOrder = `${orderName}降序`
   }
+  //依升序
   if(!isDescending){
     currentOrder = `${orderName}升序`
     filteredLists.sort((a, b) => a[orderName] - b[orderName])
@@ -52,7 +54,7 @@ function changeOrder(orderName, isDescending){
 }
 
 function createSearchInfo(dataType, dataOrder, dataNumber){
-  if(!currentSearch){ currentSearch = '無搜尋';}  //看不懂
+  if(!currentSearch){ currentSearch = '無搜尋';}  //當沒有內容(空字串)時再轉為布林值翻轉一次就會得到 true 的結果，有字串時才為false，會代入字串
     return `
     一共有<span class="">${dataNumber}</span> 筆資料<br>(<span>${dataType} + ${dataOrder} + ${currentSearch}</span>)
     `
@@ -94,6 +96,7 @@ function reset(){
   render();
 }
 
+// 呼叫函式將所有畫面上的升降序按鈕返回初始值
 function resetOrderIcon(){
   const upBtns = document.querySelectorAll('[data-priceNet-up]')
   upBtns.forEach(btn =>{
@@ -102,6 +105,7 @@ function resetOrderIcon(){
   })
 }
 
+// 傳入值重新依if條件篩選出符合條件的內容，組合後回傳新陣列
 function search(){
   filteredLists = filteredLists.filter((item) =>{
     if(item.作物名稱 === null){
@@ -162,6 +166,10 @@ type.addEventListener('change', e => {
 })
 
 
+// 這一段有錯
+
+
+
 
 // Asecending &Descending order toggler
 // 升序和降序切換器
@@ -188,6 +196,11 @@ type.addEventListener('change', e => {
 // }
 // changeOrder(orderName, isDescending);
 // })
+
+
+
+
+
 
 
 advanceSort.addEventListener("click", e => {

@@ -202,7 +202,7 @@ type.addEventListener('change', e => {
 
 
 
-
+//thead
 advanceSort.addEventListener("click", e => {
   let orderType = ""
   let orderName = ""

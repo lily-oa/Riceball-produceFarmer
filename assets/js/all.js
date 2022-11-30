@@ -196,12 +196,12 @@ advanceSort.addEventListener('click', function (e) {
   }
   var upBtn = e.target.parentNode.querySelector('[data-priceNet-up]');
   var downBtn = e.target.parentNode.querySelector('[data-priceNet-down]');
-  // Already sort by descending
+  // Already sort by descending 已經降序排列
 
   isDescending = !isDescending;
   orderName = e.target.parentNode.innerText;
 
-  //Toggle icon appearance
+  //Toggle icon appearance 切換圖標外觀
   resetOrderIcon();
   if (isDescending) {
     upBtn.classList.remove('sort--active');

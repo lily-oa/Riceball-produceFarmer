@@ -165,67 +165,58 @@ type.addEventListener('change', e => {
   
 })
 
-
-// 這一段有錯
-
-
-
-
+// thead
 // Asecending &Descending order toggler
 // 升序和降序切換器
-// advanceSort.addEventListener('click', e =>{
-//   let orderType = '';
-//   let orderName = '';
-//   if(!e.target.nodeName === 'LABEL'){ return }
-//   const upBtn = e.target.parentNode.querySelector('[data-priceNet-up]');
-//   const downBtn = e.target.parentNode.querySelector('[data-priceNet-down]');
-//   // Already sort by descending
-
-//   isDescending = !isDescending;
-//   orderName = e.target.parentNode.innerText;
-
-
-// //Toggle icon appearance
-// resetOrderIcon();
-// if(isDescending){
-//   upBtn.classList.remove('sort--active');
-//   downBtn.classList.add('sort--active');
-// }else{
-//   upBtn.classList.add('sort--active');
-//   downBtn.classList.remove('sort--active');
-// }
-// changeOrder(orderName, isDescending);
-// })
-
-
-
-
-
-
-//thead
-advanceSort.addEventListener("click", e => {
-  let orderType = ""
-  let orderName = ""
-  if (!(e.target.nodeName === "LABEL")) { return }
-  const upBtn = e.target.parentNode.querySelector('[data-priceNet-up]')
-  const downBtn = e.target.parentNode.querySelector('[data-priceNet-down]')
+advanceSort.addEventListener('click', e =>{
+  let orderType = '';
+  let orderName = '';
+  if(!(e.target.nodeName === 'LABEL')){ return }
+  const upBtn = e.target.parentNode.querySelector('[data-priceNet-up]');
+  const downBtn = e.target.parentNode.querySelector('[data-priceNet-down]');
   // Already sort by descending
 
+  isDescending = !isDescending;
+  orderName = e.target.parentNode.innerText;
 
 
-  isDescending = !isDescending
-  orderName = e.target.parentNode.innerText
-  
-  // Toggle icon appearance
-  resetOrderIcon()
-  if (isDescending) {
-    upBtn.classList.remove('sort--active')
-    downBtn.classList.add('sort--active')
-  } else {
-    upBtn.classList.add('sort--active')
-    downBtn.classList.remove('sort--active')
-  }
-  changeOrder(orderName, isDescending)
+//Toggle icon appearance
+resetOrderIcon();
+if(isDescending){
+  upBtn.classList.remove('sort--active');
+  downBtn.classList.add('sort--active');
+}else{
+  upBtn.classList.add('sort--active');
+  downBtn.classList.remove('sort--active');
+}
+changeOrder(orderName, isDescending);
 })
+
+// Riceball 寫的
+
+// advanceSort.addEventListener("click", e => {
+//   let orderType = ""
+//   let orderName = ""
+//   if (!(e.target.nodeName === "LABEL")) { return }
+//   const upBtn = e.target.parentNode.querySelector('[data-priceNet-up]')
+//   const downBtn = e.target.parentNode.querySelector('[data-priceNet-down]')
+//   // Already sort by descending
+
+
+
+//   isDescending = !isDescending
+//   orderName = e.target.parentNode.innerText
+  
+//   // Toggle icon appearance
+//   resetOrderIcon()
+//   if (isDescending) {
+//     upBtn.classList.remove('sort--active')
+//     downBtn.classList.add('sort--active')
+//   } else {
+//     upBtn.classList.add('sort--active')
+//     downBtn.classList.remove('sort--active')
+//   }
+//   changeOrder(orderName, isDescending)
+// })
 
 

@@ -212,6 +212,7 @@ type.addEventListener('change', function (e) {
 // changeOrder(orderName, isDescending);
 // })
 
+//thead
 advanceSort.addEventListener("click", function (e) {
   var orderType = "";
   var orderName = "";

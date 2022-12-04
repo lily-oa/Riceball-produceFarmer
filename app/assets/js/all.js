@@ -192,6 +192,27 @@ if(isDescending){
 changeOrder(orderName, isDescending);
 })
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Riceball 寫的
 
 // advanceSort.addEventListener("click", e => {

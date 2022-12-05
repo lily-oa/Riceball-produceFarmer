@@ -18,18 +18,18 @@ const form = document.querySelector('[data-priceNet-form]'); //讀取文字的�
 const input = document.querySelector('[data-priceNet-input]'); 
 const resetBtn = document.querySelector('[data-priceNet-reset]'); 
 const searchInfo = document.querySelector('[data-priceNet-searchInfo]'); 
-const info = document.querySelector('[data-priceNet-info]'); 
+const info = document.querySelector('[data-priceNet-info]');   //儲存格
 const order = document.querySelector('[data-priceNet-order]'); 
 const type = document.querySelector('[data-priceNet-type]'); 
 const table = document.querySelector('[data-priceNet-table]'); //tbody
-const advanceSort = document.querySelector('[data-priceNet-advanceSort]'); // table thead 標頭
+const advanceSort = document.querySelector('[data-priceNet-advanceSort]'); //thead 標頭
 
 // State
 let currentType = undefined;
 let currentOrder = undefined;
 let currentSearch = '';
-let typeSearched = false;
-let isDescending = false;
+let typeSearched = false;   //有沒有搜尋過種類回初始值
+let isDescending = false;   //是否降序
 
 // 初始化
 async function init() {
@@ -43,11 +43,11 @@ function changeOrder(orderName, isDescending){
   //依降序
   if(isDescending){
     filteredLists.sort((a, b) => b[orderName] - a[orderName])
-      currentOrder = `${orderName}降序`
+      currentOrder = `${orderName}降序`     //上價、中價、下價
   }
   //依升序
   if(!isDescending){
-    currentOrder = `${orderName}升序`
+    currentOrder = `${orderName}升序`      //上價、中價、下價
     filteredLists.sort((a, b) => a[orderName] - b[orderName])
   }
   render(filteredLists, currentType, currentOrder)  

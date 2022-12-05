@@ -50,9 +50,12 @@ function changeOrder(orderName, isDescending){
     currentOrder = `${orderName}升序`      //上價、中價、下價
     filteredLists.sort((a, b) => a[orderName] - b[orderName])
   }
+  // 這裡的currentType 及 currentOrder 暫時先給它undefined 是為了等等有值時可以給它代入
+  // undefined 為js參數的預設值
   render(filteredLists, currentType, currentOrder)  
 }
 
+// 創建搜索信息
 function createSearchInfo(dataType, dataOrder, dataNumber){
   if(!currentSearch){ currentSearch = '無搜尋';}  //當沒有內容(空字串)時再轉為布林值翻轉一次就會得到 true 的結果，有字串時才為false，會代入字串
     return `

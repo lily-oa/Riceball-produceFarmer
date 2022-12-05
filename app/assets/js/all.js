@@ -50,8 +50,9 @@ function changeOrder(orderName, isDescending){
     currentOrder = `${orderName}升序`      //上價、中價、下價
     filteredLists.sort((a, b) => a[orderName] - b[orderName])
   }
-  // 這裡的currentType 及 currentOrder 暫時先給它undefined 是為了等等有值時可以給它代入
-  // undefined 為js參數的預設值
+  //預設的參數中，先設定的可提供之後設定的使用
+  //這裡的currentType 及 currentOrder 暫時先給它undefined 是為了等等有值時可以給它代入
+  //undefined 為js參數的預設值
   render(filteredLists, currentType, currentOrder)  
 }
 
@@ -119,8 +120,8 @@ function search(){
   })
 }  
 
-init();
 render();
+init();
 
 // Search lists by input
 form.addEventListener('submit', e => {
@@ -144,7 +145,7 @@ resetBtn.addEventListener('click', e => {
 
 //Render selected order
 order.addEventListener('change', e => {
-  changeOrder(e.target.value);
+  changeOrder(e.target.value);  //需要問一下~changeOrder的函式有兩個參數但這裡的目標值只有一個，如何帶入？
 })
 
 // Render selected type
@@ -153,7 +154,7 @@ type.addEventListener('change', e => {
   if(e.target.value === 'none'){
     filteredLists = lists
     search();
-    render(filteredLists, undefined, currentOrder);
+    render(filteredLists, undefined, currentOrder); //為什麼undefined 會變成"無排序"
     return;
   }
 

@@ -26,18 +26,18 @@ var form = document.querySelector('[data-priceNet-form]'); //讀取文字的方�
 var input = document.querySelector('[data-priceNet-input]');
 var resetBtn = document.querySelector('[data-priceNet-reset]');
 var searchInfo = document.querySelector('[data-priceNet-searchInfo]');
-var info = document.querySelector('[data-priceNet-info]');
+var info = document.querySelector('[data-priceNet-info]'); //儲存格
 var order = document.querySelector('[data-priceNet-order]');
 var type = document.querySelector('[data-priceNet-type]');
 var table = document.querySelector('[data-priceNet-table]'); //tbody
-var advanceSort = document.querySelector('[data-priceNet-advanceSort]'); // table thead 標頭
+var advanceSort = document.querySelector('[data-priceNet-advanceSort]'); //thead 標頭
 
 // State
 var currentType = undefined;
 var currentOrder = undefined;
 var currentSearch = '';
-var typeSearched = false;
-var isDescending = false;
+var typeSearched = false; //有沒有搜尋過種類回初始值
+var isDescending = false; //是否降序
 
 // 初始化
 function init() {
@@ -70,11 +70,11 @@ function changeOrder(orderName, isDescending) {
     filteredLists.sort(function (a, b) {
       return b[orderName] - a[orderName];
     });
-    currentOrder = "".concat(orderName, "\u964D\u5E8F");
+    currentOrder = "".concat(orderName, "\u964D\u5E8F"); //上價、中價、下價
   }
   //依升序
   if (!isDescending) {
-    currentOrder = "".concat(orderName, "\u5347\u5E8F");
+    currentOrder = "".concat(orderName, "\u5347\u5E8F"); //上價、中價、下價
     filteredLists.sort(function (a, b) {
       return a[orderName] - b[orderName];
     });

@@ -178,6 +178,7 @@ advanceSort.addEventListener('click', e =>{
   if(!(e.target.nodeName === 'LABEL')){ return }
   const upBtn = e.target.parentNode.querySelector('[data-priceNet-up]');
   const downBtn = e.target.parentNode.querySelector('[data-priceNet-down]');
+
   // Already sort by descending 已經降序排列
 
   isDescending = !isDescending;

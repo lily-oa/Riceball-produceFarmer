@@ -25,6 +25,7 @@ const table = document.querySelector('[data-priceNet-table]'); //tbody
 const advanceSort = document.querySelector('[data-priceNet-advanceSort]'); //thead 標頭
 
 // State
+// undefined js預設值，有值時就可以代人
 let currentType = undefined;
 let currentOrder = undefined;
 let currentSearch = '';
@@ -101,6 +102,7 @@ function reset(){
 }
 
 // 呼叫函式將所有畫面上的升降序按鈕返回初始值
+// nextElementSibling 属性返回指定元素之后的下一个兄弟元素（相同节点树层中的下一个元素节点）。
 function resetOrderIcon(){
   const upBtns = document.querySelectorAll('[data-priceNet-up]')
   upBtns.forEach(btn =>{
@@ -124,6 +126,7 @@ render();
 init();
 
 // Search lists by input
+//當呼叫時沒有帶入對應的參數或是傳入值為 undefined 的情況下就會啟用預設值，所以才不會直接打印出 undefined。
 form.addEventListener('submit', e => {
   e.preventDefault();
   if(input.value.trim() === ''){
@@ -132,8 +135,7 @@ form.addEventListener('submit', e => {
   }
     currentSearch = input.value;
     search();
-    render(filteredLists);
-  
+    render(filteredLists); 
 });
 
 
@@ -145,7 +147,7 @@ resetBtn.addEventListener('click', e => {
 
 //Render selected order
 order.addEventListener('change', e => {
-  changeOrder(e.target.value);  //需要問一下~changeOrder的函式有兩個參數但這裡的目標值只有一個，如何帶入？
+  changeOrder(e.target.value); 
 })
 
 // Render selected type
@@ -154,7 +156,7 @@ type.addEventListener('change', e => {
   if(e.target.value === 'none'){
     filteredLists = lists
     search();
-    render(filteredLists, undefined, currentOrder); //為什麼undefined 會變成"無排序"
+    render(filteredLists, undefined, currentOrder); 
     return;
   }
 

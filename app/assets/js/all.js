@@ -178,13 +178,13 @@ advanceSort.addEventListener('click', e =>{
   let orderType = '';
   let orderName = '';
   if(!(e.target.nodeName === 'LABEL')){ return }
-  const upBtn = e.target.parentNode.querySelector('[data-priceNet-up]');
-  const downBtn = e.target.parentNode.querySelector('[data-priceNet-down]');
+  const upBtn = e.target.querySelector('[data-priceNet-up]');
+  const downBtn = e.target.querySelector('[data-priceNet-down]');
 
   // Already sort by descending 已經降序排列
 
   isDescending = !isDescending;
-  orderName = e.target.parentNode.innerText;
+  orderName = e.target.innerText;
 
 
 //Toggle icon appearance 切換圖標外觀
